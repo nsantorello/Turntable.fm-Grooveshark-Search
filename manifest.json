@@ -1,0 +1,15 @@
+{
+	"name": "Turntable.fm Grooveshark Search",
+	"version": "0.1",
+	"description": "Easily add the currently playing song on Turntable.fm to your Grooveshark library!",
+	"background_page": "background.html",
+	"icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+	"browser_action": {
+		"default_icon": "icon16.png"
+	},
+	"permissions": [
+		"tabs", "http://turntable.fm/*"
+	]
+}

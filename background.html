@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+// Set up listener so screen scraper can return song/artist info.
+chrome.extension.onConnect.addListener(function(port) {
+	var tab = port.sender.tab;
+	
+	// This will get called by the content script.
+	port.onMessage.addListener(function(info) {
+		// Open Grooveshark page with a search for that song and artist.
+		chrome.tabs.create({url: "http://grooveshark.com/#/search/song?q=" + info.title + " " + info.artist});
+	});
+});
+
+// Called when the user clicks on the browser action.
+chrome.browserAction.onClicked.addListener(function(tab) {
+	// Run the content script.
+	chrome.tabs.executeScript(null, {file:"content_script.js"});
+});
+</script>
+</head>
+</html>
